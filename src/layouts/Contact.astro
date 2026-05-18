@@ -22,23 +22,25 @@
                 >
                     <span data-i18n-en
                         >Let's build something <span class="text-accent italic"
-                            >together</span
+                            >special</span
                         >.</span
                     >
                     <span data-i18n-it style="display:none"
                         >Costruiamo qualcosa <span class="text-accent italic"
-                            >insieme</span
+                            >di speciale</span
                         >.</span
                     >
                 </h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">
                     <span data-i18n-en
-                        >I'm always open to new projects or opportunities to be
-                        part of your visions. Let's chat!</span
+                        >I'm always open to new projects or opportunities to
+                        grow as a developer and to develop your project. Let's
+                        chat!</span
                     >
                     <span data-i18n-it style="display:none"
                         >Sono sempre aperto a nuovi progetti o opportunità per
-                        far parte della tua visione. Parliamo!</span
+                        crescere come sviluppatore e per migliore il tuo
+                        progetto. Parliamo!</span
                     >
                 </p>
             </div>
@@ -67,18 +69,48 @@
                 </a>
             </div>
 
-            <!-- Social Links & Sub-info -->
+            <!-- Social Links & Sub-info (Bento Style) -->
             <div
-                class="pt-20 border-t border-border/50 grid grid-cols-1 md:grid-cols-2 gap-12 text-left fade-up"
+                class="pt-20 border-t border-border/50 grid grid-cols-1 md:grid-cols-3 gap-6 text-left fade-up"
                 style="animation-delay: 0.4s;"
             >
-                <div class="space-y-4">
+                <!-- Status Card -->
+                <div
+                    class="p-8 bg-white/[0.02] rounded-3xl border border-white/5 space-y-4 hover:bg-white/[0.04] transition-colors"
+                >
+                    <p
+                        class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-text-muted"
+                    >
+                        Current Status
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"
+                            ></span>
+                            <span
+                                class="relative inline-flex rounded-full h-2 w-2 bg-accent"
+                            ></span>
+                        </span>
+                        <p class="text-text-secondary font-medium">
+                            <span data-i18n-en>Available for new projects</span>
+                            <span data-i18n-it style="display:none"
+                                >Disponibile per nuovi progetti</span
+                            >
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Socials Card -->
+                <div
+                    class="p-8 bg-white/[0.02] rounded-3xl border border-white/5 space-y-4 hover:bg-white/[0.04] transition-colors"
+                >
                     <p
                         class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-text-muted"
                     >
                         Socials
                     </p>
-                    <div class="flex flex-col gap-2">
+                    <div class="grid grid-cols-2 gap-y-3">
                         <a
                             href="https://github.com/itsvladii"
                             target="_blank"
@@ -86,35 +118,35 @@
                         >
                             <span>GitHub</span>
                             <svg
-                                width="14"
-                                height="14"
+                                width="12"
+                                height="12"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                stroke-width="2.5"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                                class="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                                 ><path d="M7 7h10v10"></path><path
                                     d="M7 17 17 7"></path></svg
                             >
                         </a>
                         <a
-                            href="https:/www.linkedin.com/in/vladut-barcan-141855315"
+                            href="https://www.linkedin.com/in/vladut-barcan-141855315"
                             target="_blank"
                             class="text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group"
                         >
                             <span>LinkedIn</span>
                             <svg
-                                width="14"
-                                height="14"
+                                width="12"
+                                height="12"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                stroke-width="2.5"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                                class="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                                 ><path d="M7 7h10v10"></path><path
                                     d="M7 17 17 7"></path></svg
                             >
@@ -126,15 +158,15 @@
                         >
                             <span>Instagram</span>
                             <svg
-                                width="14"
-                                height="14"
+                                width="12"
+                                height="12"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                stroke-width="2.5"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                                class="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                                 ><path d="M7 7h10v10"></path><path
                                     d="M7 17 17 7"></path></svg
                             >
@@ -146,15 +178,15 @@
                         >
                             <span>X</span>
                             <svg
-                                width="14"
-                                height="14"
+                                width="12"
+                                height="12"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                stroke-width="2.5"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
-                                class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                                class="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
                                 ><path d="M7 7h10v10"></path><path
                                     d="M7 17 17 7"></path></svg
                             >
@@ -162,22 +194,54 @@
                     </div>
                 </div>
 
-                <div class="space-y-4">
+                <!-- Location Card -->
+                <div
+                    class="p-8 bg-white/[0.02] rounded-3xl border border-white/5 space-y-4 hover:bg-white/[0.04] transition-colors"
+                >
                     <p
                         class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-text-muted"
                     >
                         Location
                     </p>
-                    <p class="text-text-secondary">
-                        Castelbellino, Italy<br /><span class="text-text-muted"
-                            >Available worldwide</span
+                    <div class="space-y-1">
+                        <p class="text-text-secondary font-medium">
+                            Castelbellino, Italy
+                        </p>
+                        <p
+                            class="text-text-muted text-sm font-mono"
+                            id="local-time"
                         >
-                    </p>
+                            --:-- --
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    function updateTime() {
+        const timeElement = document.getElementById("local-time");
+        if (!timeElement) return;
+
+        const options: Intl.DateTimeFormatOptions = {
+            timeZone: "Europe/Rome",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true,
+        };
+
+        const itTime = new Intl.DateTimeFormat("en-US", options).format(
+            new Date(),
+        );
+        timeElement.textContent = `${itTime} GMT+2`;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
 
 <style>
     #contact {

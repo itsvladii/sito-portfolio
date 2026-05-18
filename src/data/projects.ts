@@ -13,9 +13,10 @@ export const projects = [
     tech: [
       "Astro",
       "Svelte",
-      "Supabase",
-      "Github Actions",
+      "TypeScript",
+      "PostgreSQL",
       "Vercel",
+      "Github Actions",
       "Cloudinary",
     ],
     colors: {
@@ -42,7 +43,8 @@ export const projects = [
     status: "live",
     url: "https://owcs-wiki.vercel.app",
     github: "https://github.com/itsvladii/owcs-nexus",
-    image: "src/assets/nexus.png",
+    image:
+      "https://res.cloudinary.com/dm1bfprgq/image/upload/v1779130804/nexus_ghsd4q.png",
     type: "web",
   },
   {
@@ -56,13 +58,20 @@ export const projects = [
       it: "App mobile bilingue (Kotlin + Flutter) per trovare i distributori di carburante più economici in Italia. Backend Python con scraping giornaliero dal MIMIT, dati su Supabase. Include stazioni di ricarica EV da Open Charge Map.",
       en: "Bilingual mobile app (Kotlin + Flutter) to find the cheapest fuel stations in Italy. Python backend with daily scraping from MIMIT, data on Supabase. Includes EV charging stations from Open Charge Map.",
     },
-    tech: ["Kotlin", "Flutter", "Dart", "Python", "Supabase", "GitHub Actions"],
+    tech: [
+      "Kotlin",
+      "Flutter",
+      "Dart",
+      "PostgreSQL",
+      "Python",
+      "GitHub Actions",
+    ],
     colors: {
-      primary: "#7ec850",
-      secondary: "#a3e635",
-      glow: "rgba(126,200,80,0.15)",
-      accent: "rgba(163,230,53,0.1)",
-      border: "rgba(126,200,80,0.3)",
+      primary: "#D9FD0D",
+      secondary: "#D9FD0D",
+      glow: "rgba(217,253,13,0.15)",
+      accent: "rgba(217,253,13,0.1)",
+      border: "rgba(217,253,13,0.3)",
     },
     features: {
       it: [
@@ -81,7 +90,12 @@ export const projects = [
     status: "wip",
     url: null,
     github: "https://github.com/itsvladii/Fuelly_Kotlin",
-    image: "/projects/fuelly.webp",
+    githubs: [
+      { name: "Kotlin", url: "https://github.com/itsvladii/Fuelly_Kotlin" },
+      { name: "Flutter", url: "https://github.com/itsvladii/Fuelly_Dart" },
+    ],
+    image:
+      "https://res.cloudinary.com/dm1bfprgq/image/upload/v1779130804/fuelly_dkfkwe.jpg",
     type: "mobile",
   },
 ];
@@ -95,7 +109,7 @@ export const skills = [
       { name: "Astro", level: "Expert" },
       { name: "Tailwind CSS", level: "Proficient" },
       { name: "TypeScript", level: "Proficient" },
-      { name: "React", level: "Proficient" },
+      { name: "React", level: "Learning" },
       { name: "Svelte", level: "Learning" },
     ],
   },
@@ -127,5 +141,22 @@ export const skills = [
       { name: "Linux", level: "Proficient" },
       { name: "Figma", level: "Learning" },
     ],
+  },
+];
+
+export const futureSkills = [
+  { name: "Rust", slug: "rust", desc: "Memory safety and low-level control" },
+  {
+    name: "Docker",
+    slug: "docker",
+    desc: "Containerization & DevOps workflows",
+  },
+  { name: "Swift", slug: "swift", desc: "Native iOS development" },
+  { name: "Next.js", slug: "nextdotjs", desc: "Full-stack React frameworks" },
+  { name: "C++", slug: "cplusplus", desc: "High-performance applications" },
+  {
+    name: "Unity",
+    slug: "unity",
+    desc: "Game development and interactive experiences",
   },
 ];

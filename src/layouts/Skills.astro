@@ -1,5 +1,6 @@
 ---
 import { skills } from "../data/projects";
+import {futureSkills} from "../data/projects";
 
 // Technology logos using Simple Icons slugs
 const marqueeItems = [
@@ -64,7 +65,7 @@ const levelConfig = {
                 <span data-i18n-it style="display:none">Competenze</span>
             </p>
             <h2
-                class="section-title font-display text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-text-primary"
+                class="section-title font-display text-[clamp(2rem,8vw,4rem)] font-extrabold text-text-primary leading-[1.1] tracking-tighter"
             >
                 <span data-i18n-en>Skills Matrix</span>
                 <span data-i18n-it style="display:none">Matrice Competenze</span
@@ -75,20 +76,20 @@ const levelConfig = {
 
     <!-- Auto-scrolling Marquee -->
     <div
-        class="w-full py-10 bg-surface/20 border-y border-border/50 backdrop-blur-sm relative mb-24 group"
+        class="w-full py-6 md:py-10 bg-surface/20 border-y border-border/50 backdrop-blur-sm relative mb-16 md:mb-24 group"
     >
-        <div class="flex overflow-hidden select-none gap-12 mask-fade">
+        <div class="flex overflow-hidden select-none gap-8 md:gap-12 mask-fade">
             <div
-                class="flex items-center gap-16 animate-marquee group-hover:pause"
+                class="flex items-center gap-12 md:gap-16 animate-marquee group-hover:pause"
             >
                 {
                     doubleMarquee.map((item) => (
-                        <div class="flex items-center justify-center w-20 h-20 rounded-2xl hover:border-accent/50 transition-all hover:scale-110 group/item">
+                        <div class="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl hover:border-accent/50 transition-all hover:scale-110 group/item">
                             <img
                                 src={`https://cdn.simpleicons.org/${item.slug}/e8edf2`}
                                 alt={item.name}
                                 title={item.name}
-                                class="w-10 h-10 opacity-60 group-hover/item:opacity-100 transition-opacity grayscale group-hover/item:grayscale-0"
+                                class="w-8 h-8 md:w-10 md:h-10 opacity-60 group-hover/item:opacity-100 transition-opacity grayscale group-hover/item:grayscale-0"
                                 loading="lazy"
                             />
                         </div>
@@ -100,18 +101,18 @@ const levelConfig = {
 
     <!-- Proficiency Matrix Grid -->
     <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {
                 skills.map((category) => (
-                    <div class="space-y-8 fade-up">
+                    <div class="space-y-6 md:space-y-8 fade-up">
                         <div class="flex items-center gap-4">
-                            <h3 class="font-display text-2xl font-bold text-text-primary tracking-tight">
+                            <h3 class="font-display text-xl md:text-2xl font-bold text-text-primary tracking-tight shrink-0">
                                 {category.category}
                             </h3>
                             <div class="h-[1px] flex-1 bg-border/50" />
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                             {category.items.map((item) => {
                                 const conf =
                                     levelConfig[
@@ -119,7 +120,7 @@ const levelConfig = {
                                     ];
                                 return (
                                     <div
-                                        class={`p-4 rounded-xl border bg-surface/30 backdrop-blur-sm transition-all hover:translate-x-1 group ${conf.border}`}
+                                        class={`p-3 md:p-4 rounded-xl border bg-surface/30 backdrop-blur-sm transition-all hover:translate-x-1 group ${conf.border}`}
                                     >
                                         <div class="flex items-center justify-between mb-2">
                                             <span
@@ -164,6 +165,53 @@ const levelConfig = {
                     </div>
                 ))
             }
+        </div>
+    </div>
+
+    <!-- Technology Wishlist -->
+    <div class="container mt-32">
+        <div class="w-full">
+            <div class="flex items-center gap-6 mb-12 fade-up">
+                <div class="p-3 bg-accent/10 rounded-2xl">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path><path d="M12 7v5l3 3"></path></svg>
+                </div>
+                <div>
+                    <h3 class="font-display text-3xl font-bold text-text-primary">
+                        <span data-i18n-en>Future Stack</span>
+                        <span data-i18n-it style="display:none">Prossimi Obiettivi</span>
+                    </h3>
+                    <p class="text-text-muted text-sm font-mono tracking-tight mt-1">
+                        <span data-i18n-en>// Technologies I'm planning to master next</span>
+                        <span data-i18n-it style="display:none">// Tecnologie che prevedo di imparare a breve</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-up" style="animation-delay: 0.2s;">
+                {futureSkills.map((tech) => (
+                    <div class="group relative p-6 bg-surface/20 border border-white/5 rounded-3xl hover:bg-white/[0.04] transition-all hover:scale-[1.02]">
+                        <div class="flex items-start justify-between mb-4">
+                            <img
+                                src={`https://cdn.simpleicons.org/${tech.slug}/e8edf2`}
+                                alt={tech.name}
+                                class="w-8 h-8 opacity-40 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                            />
+                            <span class="px-2 py-1 rounded-md bg-white/5 border border-white/10 text-[0.6rem] font-mono uppercase tracking-widest text-text-muted">
+                                Wishlist
+                            </span>
+                        </div>
+                        <h4 class="text-lg font-bold text-text-primary mb-1 group-hover:text-accent transition-colors">
+                            {tech.name}
+                        </h4>
+                        <p class="text-xs text-text-muted leading-relaxed">
+                            {tech.desc}
+                        </p>
+
+                        <!-- Hover decorative line -->
+                        <div class="absolute bottom-0 left-6 right-6 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
 </section>
