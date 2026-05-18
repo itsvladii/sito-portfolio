@@ -1,0 +1,165 @@
+---
+import { projects } from '../data/projects';
+import BrowserFrame from '../components/BrowserFrame.astro';
+import MobileFrame from '../components/MobileFrame.astro';
+---
+
+<section id="projects" class="py-28 overflow-hidden">
+  <div class="container mb-20">
+    <div class="section-header fade-up">
+      <p class="section-label font-mono text-[0.7rem] tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2 before:content-['//'] before:opacity-50">
+        <span data-i18n-en>Projects</span>
+        <span data-i18n-it style="display:none">Progetti</span>
+      </p>
+      <h2 class="section-title font-display text-[clamp(2.5rem,5vw,4rem)] font-extrabold text-text-primary mb-4">
+        <span data-i18n-en>Featured Work</span>
+        <span data-i18n-it style="display:none">Progetti Selezionati</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="flex flex-col">
+    {projects.map((p, i) => (
+      <article
+        class={`project-band relative w-full border-y border-border py-20 md:py-32 group overflow-hidden transition-colors duration-500 hover:bg-surface/30`}
+        style={`--p-primary: ${p.colors.primary}; --p-secondary: ${p.colors.secondary}; --p-glow: ${p.colors.glow}; --p-border: ${p.colors.border};`}
+      >
+        <!-- Background Glow -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+             style={`background: radial-gradient(circle at 30% 50%, var(--p-glow), transparent 50%), radial-gradient(circle at 70% 50%, ${p.id === 'nexus' ? 'rgba(255,127,222,0.1)' : 'transparent'}, transparent 50%);`}></div>
+
+        <div class="container relative z-10">
+          <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-20`}>
+
+            <!-- Project Content -->
+            <div class="flex-1 space-y-6 fade-up text-text-primary">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl border flex items-center justify-center shrink-0"
+                     style={`background-color: var(--p-glow); border-color: var(--p-border); color: var(--p-primary);`}>
+                  {p.id === 'nexus' ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+                    </svg>
+                  ) : (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                  )}
+                </div>
+                <span class={`px-2.5 py-1 rounded-sm text-[0.6rem] font-mono font-bold tracking-widest uppercase border`} style={p.id === 'nexus' ? `background-color: rgba(255, 127, 222, 0.1); color: #ff7fde; border-color: rgba(255, 127, 222, 0.3);` : `background-color: ${p.colors.primary}1A; color: ${p.colors.primary}; border-color: ${p.colors.primary}4D;`}>
+                  {p.status === 'live' ? 'Live' : 'WIP'}
+                </span>
+              </div>
+
+              <h3 class="font-display text-4xl md:text-6xl font-extrabold tracking-tighter" style={`color: ${p.colors.primary === '#085fff' ? '#fff' : p.colors.primary}; text-shadow: ${p.colors.primary === '#085fff' ? '0 0 20px rgba(8, 95, 255, 0.4)' : 'none'};`}>
+                {p.name}
+              </h3>
+
+              <p class="text-lg md:text-xl text-text-primary/90 font-medium leading-tight italic">
+                <span data-i18n-en>{p.tagline.en}</span>
+                <span data-i18n-it style="display:none">{p.tagline.it}</span>
+              </p>
+
+              <p class="text-text-secondary leading-relaxed max-w-xl">
+                <span data-i18n-en>{p.description.en}</span>
+                <span data-i18n-it style="display:none">{p.description.it}</span>
+              </p>
+              <div class="flex flex-wrap gap-3 pt-2">
+                {p.tech.map(t => {
+                  const slug = t.toLowerCase().replace('.', 'dot').replace(' ', '');
+                  return (
+                    <div class="group/tech relative">
+                      <div class="px-2 py-2 bg-surface/50 border border-border rounded-lg transition-all hover:border-accent/40 hover:bg-surface flex items-center justify-center">
+                        <img
+                          src={`https://cdn.simpleicons.org/${slug}/e8edf2`}
+                          alt={t}
+                          title={t}
+                          class="w-5 h-5 opacity-60 group-hover/tech:opacity-100 transition-opacity"
+                          loading="lazy"
+                        />
+                      </div>
+                      <!-- Tooltip -->
+                      <span class="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-surface-2 border border-border rounded text-[10px] font-mono text-text-secondary opacity-0 group-hover/tech:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+                        {t}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div class="flex gap-4 pt-6">
+                {p.url && (
+                  <a href={p.url} target="_blank" rel="noopener" class="group/btn relative px-6 py-3 overflow-hidden rounded-custom font-mono text-sm font-bold tracking-wider transition-all" style={`background-color: ${p.colors.primary}; color: var(--color-bg);`}>
+                    <span class="relative z-10 flex items-center gap-2">
+                      <span data-i18n-en>See Project</span>
+                      <span data-i18n-it style="display:none">Visualizza Progetto</span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </span>
+                  </a>
+                )}
+                <a href={p.github} target="_blank" rel="noopener" class="px-6 py-3 rounded-custom font-mono text-sm font-bold tracking-wider border border-border text-text-secondary hover:text-text-primary hover:border-text-primary transition-all flex items-center gap-2">
+                  <span>GitHub</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Project Visual Mockup -->
+            <div class="flex-1 w-full fade-up flex justify-center">
+              {p.type === 'mobile' ? (
+                <MobileFrame background={p.colors.glow}>
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={`Screenshot of ${p.name}`}
+                      class="w-full h-full object-cover object-top transition-transform duration-[3s] ease-in-out group-hover/mobile:scale-105"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                       <div class="text-4xl font-display font-black tracking-tighter" style={`color: ${p.colors.primary};`}>
+                         {p.name.split(' ').map(w => w[0]).join('')}
+                       </div>
+                    </div>
+                  )}
+                </MobileFrame>
+              ) : (
+                <BrowserFrame background={p.colors.glow}>
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={`Screenshot of ${p.name}`}
+                      class="w-full h-full object-cover object-top transition-transform duration-[3s] ease-in-out group-hover/frame:scale-110 group-hover/frame:translate-y-[-10%]"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                       <div class="text-8xl font-display font-black tracking-tighter" style={`color: ${p.colors.primary};`}>
+                         {p.name.split(' ').map(w => w[0]).join('')}
+                       </div>
+                    </div>
+                  )}
+
+                  <!-- Overlay Decoration -->
+                  <div class="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-bg/80 backdrop-blur-md border border-white/10 transform translate-y-4 opacity-0 group-hover/frame:translate-y-0 group-hover/frame:opacity-100 transition-all duration-500 z-20">
+                     <p class="font-mono text-[0.6rem] text-text-muted flex items-center gap-2">
+                       <span class="w-2 h-2 rounded-full animate-pulse" style={`background-color: ${p.colors.primary};`}></span>
+                       v{Math.floor(Math.random() * 5)}.0.4 // build_id: {Math.random().toString(36).substring(7).toUpperCase()}
+                     </p>
+                  </div>
+                </BrowserFrame>
+              )}
+            </div>
+
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .project-band {
+    scroll-margin-top: 100px;
+  }
+</style>

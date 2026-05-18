@@ -1,0 +1,93 @@
+---
+---
+
+<section id="contact" class="py-32 relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="container relative z-10">
+        <div class="max-w-4xl mx-auto text-center space-y-12">
+
+            <!-- Header -->
+            <div class="space-y-4 fade-up">
+                <p class="section-label justify-center">
+                    <span data-i18n-en>Get in touch</span>
+                    <span data-i18n-it style="display:none">Contatti</span>
+                </p>
+                <h2 class="text-[clamp(2.5rem,8vw,5rem)] font-extrabold leading-none tracking-tighter">
+                    <span data-i18n-en>Let's build something <span class="text-accent italic">together</span>.</span>
+                    <span data-i18n-it style="display:none">Costruiamo qualcosa <span class="text-accent italic">insieme</span>.</span>
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    <span data-i18n-en>I'm always open to new projects, creative ideas or opportunities to be part of your visions.</span>
+                    <span data-i18n-it style="display:none">Sono sempre aperto a nuovi progetti, idee creative o opportunità per far parte della tua visione.</span>
+                </p>
+            </div>
+
+            <!-- Main CTA -->
+            <div class="fade-up" style="animation-delay: 0.2s;">
+                <a href="mailto:vladivolo@gmail.com" class="group relative inline-flex items-center gap-4 px-10 py-5 bg-text-primary text-bg rounded-full font-display text-xl font-bold transition-all hover:scale-105 active:scale-95 hover:shadow-[0_0_40px_rgba(232,237,242,0.3)]">
+                    <span data-i18n-en>Say Hello</span>
+                    <span data-i18n-it style="display:none">Dì Ciao</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </a>
+            </div>
+
+            <!-- Social Links & Sub-info -->
+            <div class="pt-20 border-t border-border/50 grid grid-cols-1 md:grid-cols-3 gap-12 text-left fade-up" style="animation-delay: 0.4s;">
+
+                <div class="space-y-4">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-text-muted">Socials</p>
+                    <div class="flex flex-col gap-2">
+                        <a href="https://github.com/vladivolo" target="_blank" class="text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group">
+                            <span>GitHub</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/vladivolo" target="_blank" class="text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group">
+                            <span>LinkedIn</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </a>
+                        <a href="https://instagram.com/vladivolo" target="_blank" class="text-text-secondary hover:text-accent transition-colors flex items-center gap-2 group">
+                            <span>Instagram</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-text-muted">Location</p>
+                    <p class="text-text-secondary">Torino, Italy<br/><span class="text-text-muted">Available worldwide</span></p>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-text-muted">Inspiration</p>
+                    <p class="text-text-secondary italic leading-relaxed">
+                        "Great design is invisible."
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-text-muted font-mono text-[0.6rem] tracking-wider uppercase">
+                <p>© 2024 Vladivolo // Portfolio</p>
+                <div class="flex gap-8">
+                    <span>Astro v4.0</span>
+                    <span>Tailwind CSS</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    #contact {
+        scroll-margin-top: 100px;
+    }
+
+    /* Custom underline effect for the " Say Hello" button if desired */
+    a.group {
+        width: fit-content;
+    }
+</style>
