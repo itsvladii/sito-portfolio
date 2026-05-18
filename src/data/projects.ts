@@ -41,7 +41,7 @@ export const projects = [
     },
     status: "live",
     url: "https://owcs-wiki.vercel.app",
-    github: "https://github.com/vladivolo/owcs-nexus",
+    github: "https://github.com/itsvladii/owcs-nexus",
     image: "src/assets/nexus.png",
     type: "web",
   },
@@ -49,8 +49,8 @@ export const projects = [
     id: "fuelly",
     name: "Fuelly",
     tagline: {
-      it: "Prezzi carburante in Italia, sempre aggiornati",
-      en: "Italy fuel price finder, always up to date",
+      it: "Prezzi carburante in Italia, resi meno noiosi",
+      en: "Italy fuel price finder, made less boring",
     },
     description: {
       it: "App mobile bilingue (Kotlin + Flutter) per trovare i distributori di carburante più economici in Italia. Backend Python con scraping giornaliero dal MIMIT, dati su Supabase. Include stazioni di ricarica EV da Open Charge Map.",
@@ -80,7 +80,7 @@ export const projects = [
     },
     status: "wip",
     url: null,
-    github: "https://github.com/vladivolo/fuelly",
+    github: "https://github.com/itsvladii/Fuelly_Kotlin",
     image: "/projects/fuelly.webp",
     type: "mobile",
   },
