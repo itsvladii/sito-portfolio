@@ -107,6 +107,7 @@ export const skills = [
       { name: "HTML", level: "Expert" },
       { name: "CSS", level: "Expert" },
       { name: "Astro", level: "Expert" },
+      { name: "Bootstrap 5", level: "Expert" },
       { name: "Tailwind CSS", level: "Proficient" },
       { name: "TypeScript", level: "Proficient" },
       { name: "React", level: "Learning" },
@@ -134,12 +135,14 @@ export const skills = [
   {
     category: "Infrastructure & Tools",
     items: [
+      { name: "Vercel", level: "Expert" },
       { name: "MySQL", level: "Expert" },
       { name: "Git", level: "Expert" },
       { name: "PostgreSQL", level: "Proficient" },
       { name: "Github Actions", level: "Proficient" },
       { name: "Linux", level: "Proficient" },
       { name: "Figma", level: "Learning" },
+      { name: "Next.js", level: "Learning" },
     ],
   },
 ];
@@ -152,7 +155,6 @@ export const futureSkills = [
     desc: "Containerization & DevOps workflows",
   },
   { name: "Swift", slug: "swift", desc: "Native iOS development" },
-  { name: "Next.js", slug: "nextdotjs", desc: "Full-stack React frameworks" },
   { name: "C++", slug: "cplusplus", desc: "High-performance applications" },
   {
     name: "Unity",
