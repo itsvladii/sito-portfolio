@@ -51,7 +51,7 @@ import MobileFrame from '../components/MobileFrame.astro';
                 </span>
               </div>
 
-              <h3 class="font-display text-4xl md:text-6xl font-extrabold tracking-tighter" style={`color: ${p.colors.primary === '#085fff' ? '#fff' : p.colors.primary}; text-shadow: ${p.colors.primary === '#085fff' ? '0 0 20px rgba(8, 95, 255, 0.4)' : 'none'};`}>
+              <h3 class="font-display text-4xl md:text-6xl font-extrabold tracking-tighter" style={`color: ${p.id === 'nexus' ? 'var(--color-text-primary)' : p.colors.primary}; text-shadow: ${p.id === 'nexus' ? '0 0 20px rgba(8, 95, 255, 0.4)' : 'none'};`}>
                 {p.name}
               </h3>
 
@@ -74,7 +74,7 @@ import MobileFrame from '../components/MobileFrame.astro';
                           src={`https://cdn.simpleicons.org/${slug}/e8edf2`}
                           alt={t}
                           title={t}
-                          class="w-5 h-5 opacity-60 group-hover/tech:opacity-100 transition-opacity"
+                          class="w-5 h-5 opacity-60 group-hover/tech:opacity-100 transition-opacity filter-icon"
                           loading="lazy"
                         />
                       </div>

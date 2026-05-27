@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
 const { title = "Vladi — Portfolio" } = Astro.props;
 ---
 
@@ -14,6 +15,28 @@ const { title = "Vladi — Portfolio" } = Astro.props;
             content="Portfolio di Vladi — sviluppatore web e mobile."
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+
+            if (theme === "light") {
+                document.documentElement.setAttribute("data-theme", "light");
+                document.documentElement.classList.remove("dark");
+            } else {
+                document.documentElement.setAttribute("data-theme", "dark");
+                document.documentElement.classList.add("dark");
+            }
+        </script>
     </head>
     <body
         class="font-mono bg-bg text-text-primary overflow-x-hidden min-h-screen"
@@ -53,13 +76,16 @@ const { title = "Vladi — Portfolio" } = Astro.props;
                         class="font-mono text-[0.8rem] tracking-widest text-text-secondary hover:text-text-primary transition-colors"
                         data-i18n="nav.contact">Contact</a
                     >
-                    <button
-                        class="font-mono text-[0.7rem] font-bold tracking-[0.15em] text-accent bg-accent-dim border border-[rgba(0,212,255,0.25)] px-[0.65rem] py-[0.3rem] rounded-[4px] cursor-pointer hover:bg-[rgba(0,212,255,0.2)] hover:border-accent transition-all"
-                        id="langToggle"
-                        aria-label="Toggle language"
-                    >
-                        <span id="langLabel">IT</span>
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <ThemeToggle />
+                        <button
+                            class="font-mono text-[0.7rem] font-bold tracking-[0.15em] text-accent bg-accent-dim border border-[rgba(0,212,255,0.25)] px-[0.65rem] py-[0.3rem] rounded-[4px] cursor-pointer hover:bg-[rgba(0,212,255,0.2)] hover:border-accent transition-all"
+                            id="langToggle"
+                            aria-label="Toggle language"
+                        >
+                            <span id="langLabel">IT</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -95,7 +121,7 @@ const { title = "Vladi — Portfolio" } = Astro.props;
 
             function applyLang() {
                 document.querySelectorAll("[data-i18n]").forEach((el) => {
-                    const key = el.getAttribute("data-i18n")!;
+                    const key = el.getAttribute("data-i18n")! || "";
                     if (translations[key])
                         el.textContent = translations[key][lang];
                 });
@@ -127,14 +153,14 @@ const { title = "Vladi — Portfolio" } = Astro.props;
             window.addEventListener("scroll", () => {
                 if (window.scrollY > 40) {
                     nav.classList.add(
-                        "bg-[rgba(8,12,16,0.85)]",
+                        "bg-bg/85",
                         "backdrop-blur-xl",
                         "border-border",
                     );
                     nav.classList.remove("border-transparent");
                 } else {
                     nav.classList.remove(
-                        "bg-[rgba(8,12,16,0.85)]",
+                        "bg-bg/85",
                         "backdrop-blur-xl",
                         "border-border",
                     );

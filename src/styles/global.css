@@ -18,6 +18,8 @@
     --color-accent-dim: rgba(0, 212, 255, 0.12);
     --color-accent-glow: rgba(0, 212, 255, 0.3);
 
+    --color-icon-fill: #e8edf2;
+
     --color-nexus-primary: #ff6b35;
     --color-nexus-secondary: #7c3aed;
     --color-nexus-glow: rgba(255, 107, 53, 0.2);
@@ -77,6 +79,38 @@
     }
 }
 
+:root[data-theme="light"] {
+    --color-bg: #f8fafc;
+    --color-bg-2: #f1f5f9;
+    --color-bg-3: #e2e8f0;
+    --color-surface: #ffffff;
+    --color-surface-2: #f8fafc;
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-border-hover: rgba(0, 0, 0, 0.15);
+
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+    --color-text-muted: #64748b;
+
+    --color-accent: #0284c7;
+    --color-accent-dim: rgba(2, 132, 199, 0.1);
+    --color-accent-glow: rgba(2, 132, 199, 0.2);
+
+    --color-icon-fill: #0f172a;
+}
+
+:root[data-theme="light"] body::before {
+    opacity: 0.25;
+}
+
+.filter-icon {
+    transition: filter 0.3s ease;
+}
+
+:root[data-theme="light"] .filter-icon {
+    filter: invert(0.8) brightness(0.5);
+}
+
 @layer base {
     *,
     *::before,
@@ -97,6 +131,9 @@
         color: var(--color-text-primary);
         line-height: 1.6;
         overflow-x: hidden;
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
     }
 
     /* Grain texture overlay */
@@ -116,11 +153,12 @@
         position: fixed;
         inset: 0;
         background-image:
-            linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            linear-gradient(var(--color-accent-dim) 1px, transparent 1px),
+            linear-gradient(90deg, var(--color-accent-dim) 1px, transparent 1px);
         background-size: 48px 48px;
         pointer-events: none;
         z-index: 0;
+        opacity: 0.5;
     }
 
     h1,
