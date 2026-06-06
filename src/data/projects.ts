@@ -8,7 +8,7 @@ export const projects = [
     },
     description: {
       it: "Piattaforma non-ufficiale di statistiche per l'OWCS con algoritmo di ELO rating per le squadre partecipanti, grafici interattivi e statistiche di hero bans per ogni mappa giocata. Dati sincronizzati ogni ora in tempo reale grazie all' API ufficiale di Liquipedia.",
-      en: "Unofficial OWCS statistics platform with custom ELO ratings algorithm for the teams partecipating, interactive charts and hero bans stats for every single map played. Data synced in real-time every hour thanks to Liquipedia's official API.",
+      en: "Unofficial OWCS statistics platform with custom ELO ratings algorithm for the teams participating, interactive charts and hero bans stats for every single map played. Data synced in real-time every hour thanks to Liquipedia's official API.",
     },
     tech: [
       "Astro",
@@ -29,14 +29,12 @@ export const projects = [
     features: {
       it: [
         "ELO rating dinamico",
-        "Card TCG dei giocatori",
-        "Pannello debug pubblico",
+        "Stats di hero bans per ogni mappa",
         "Sync real-time Liquipedia",
       ],
       en: [
         "Dynamic ELO rating",
-        "TCG player cards",
-        "Public debug panel",
+        "Hero bans stats for every map",
         "Real-time Liquipedia sync",
       ],
     },
@@ -108,17 +106,17 @@ export const skills = [
       { name: "CSS", level: "Expert" },
       { name: "Astro", level: "Expert" },
       { name: "Bootstrap 5", level: "Expert" },
+      { name: "TypeScript", level: "Expert" },
       { name: "Tailwind CSS", level: "Proficient" },
-      { name: "TypeScript", level: "Proficient" },
       { name: "React", level: "Learning" },
-      { name: "Svelte", level: "Learning" },
+      { name: "Svelte", level: "Proficient" },
     ],
   },
   {
     category: "Backend & Systems",
     items: [
       { name: "C#", level: "Expert" },
-      { name: "PHP", level: "Proficient" },
+      { name: "PHP", level: "Expert" },
       { name: "Python", level: "Proficient" },
       { name: "C", level: "Proficient" },
       { name: "Laravel", level: "Learning" },
@@ -148,17 +146,19 @@ export const skills = [
 ];
 
 export const futureSkills = [
-  { name: "Rust", slug: "rust", desc: "Memory safety and low-level control" },
   {
     name: "Docker",
     slug: "docker",
-    desc: "Containerization & DevOps workflows",
+    desc: "Containerization & reproducible dev environments",
   },
-  { name: "Swift", slug: "swift", desc: "Native iOS development" },
-  { name: "C++", slug: "cplusplus", desc: "High-performance applications" },
   {
-    name: "Unity",
-    slug: "unity",
-    desc: "Game development and interactive experiences",
+    name: "Go",
+    slug: "go",
+    desc: "High-performance backend services and APIs",
+  },
+  {
+    name: "Kubernetes",
+    slug: "kubernetes",
+    desc: "Container orchestration at scale",
   },
 ];

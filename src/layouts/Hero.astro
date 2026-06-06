@@ -57,14 +57,12 @@
                 class="hero-bio text-[0.9rem] text-text-secondary leading-[1.8] max-w-[480px] mb-10 fade-up"
             >
                 <span data-i18n-en
-                    >Student, developer, esports nerd. Crafting UIs, backends
-                    and mobile apps, while trying to not be mediocre at
-                    Overwatch.</span
+                    >Building production-ready web and mobile apps,from esports stats platforms to fuel price finders. 
+                    Currently finishing my CS degree and looking for opportunities, even abroad!</span
                 >
                 <span data-i18n-it style="display:none"
-                    >Studente, sviluppatore e appassionato di esports. Creo
-                    interfacce, backend e app mobile, mentre cerco (invano) di
-                    non essere mediocre su Overwatch.</span
+                    >Sviluppo app web e mobile orientate alla produzione, da piattaforme di statistiche esports ad app per i prezzi del carburante.
+                    Sto concludendo la triennale e cerco opportunità di lavoro, anche all'estero!</span
                 >
             </p>
 
@@ -286,69 +284,35 @@
                 </div>
             </a>
 
-            <!-- Setup / Gear Card (Wide) -->
-            <div
-                class="col-span-2 bg-surface/20 border border-border/50 rounded-custom-lg p-6 flex flex-col md:flex-row items-center justify-between group overflow-hidden relative"
-            >
-                <div class="flex items-center gap-5">
-                    <div
-                        class="p-3 bg-accent/10 rounded-2xl text-accent group-hover:scale-110 transition-transform duration-300"
-                    >
-                        <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            ><path
-                                d="M20 16V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v12m16 0a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2m16 0H4m16 4H4"
-                            ></path></svg
-                        >
-                    </div>
-                    <div>
-                        <p
-                            class="font-mono text-[0.65rem] text-accent tracking-[0.2em] uppercase font-bold mb-1"
-                        >
-                            My Daily Driver
-                        </p>
-                        <p
-                            class="text-xl font-display font-bold text-text-primary"
-                        >
-                            MacBook Air
-                        </p>
-                        <p
-                            class="text-[0.65rem] text-text-muted font-mono uppercase tracking-tighter"
-                        >
-                            Retina 13-inch, Late 2020
-                        </p>
-                    </div>
-                </div>
+<!-- Coding Experience Card -->
+<div class="col-span-2 bg-surface/20 border border-border/50 rounded-custom-lg p-6 relative group overflow-hidden min-h-[140px]">
+  <div class="absolute -right-4 -bottom-2 font-display text-5xl font-black opacity-[0.03] select-none pointer-events-none group-hover:opacity-[0.05] transition-opacity">
+    CODE
+  </div>
 
-                <div class="hidden md:block w-[1px] h-12 bg-border/50"></div>
+  <span class="font-mono text-[0.65rem] text-accent tracking-[0.2em] uppercase font-bold">Experience</span>
 
-                <div class="flex flex-col md:items-end mt-4 md:mt-0">
-                    <p class="text-sm font-bold text-text-primary">
-                        Intel Core i5 • 8GB RAM
-                    </p>
-                    <p
-                        class="text-[0.7rem] text-text-muted font-mono tracking-tight text-right"
-                    >
-                        Corsair K70 CORE TKL • AirPods Pro 2
-                    </p>
-                </div>
+  <div class="mt-4 grid grid-cols-5 gap-2">
+    {[
+      { id: 'exp-years', label: 'years' },
+      { id: 'exp-days', label: 'days' },
+      { id: 'exp-hours', label: 'hours' },
+      { id: 'exp-minutes', label: 'mins' },
+      { id: 'exp-seconds', label: 'secs' },
+    ].map(({ id, label }) => (
+      <div class="flex flex-col items-center p-2 bg-surface/40 border border-border/50 rounded-xl">
+        <span id={id} class="font-display text-xl md:text-2xl font-extrabold text-text-primary leading-none">0</span>
+        <span class="font-mono text-[0.55rem] text-text-muted uppercase tracking-widest mt-1">{label}</span>
+      </div>
+    ))}
+  </div>
 
-                <!-- Decorative background text -->
-                <div
-                    class="absolute -right-4 -bottom-2 font-display text-5xl font-black opacity-[0.03] select-none pointer-events-none group-hover:opacity-[0.05] transition-opacity"
-                >
-                    SETUP
-                </div>
-            </div>
-        </div>
-    </div>
+  <p class="font-mono text-[0.6rem] text-text-muted mt-3">
+    <span class="text-accent">// </span>coding since september 2017
+  </p>
+</div>
+
+
 </section>
 
 <script>
@@ -536,4 +500,30 @@
             }, 2000);
         }
     });
+
+    function updateExperience() {
+    const start = new Date('2017-09-01T00:00:00');
+    const now = new Date();
+    let diff = Math.floor((now.getTime() - start.getTime()) / 1000);
+
+    const years   = Math.floor(diff / (365.25 * 24 * 3600));
+    diff -= Math.floor(years * 365.25 * 24 * 3600);
+    const days    = Math.floor(diff / (24 * 3600));
+    diff -= days * 24 * 3600;
+    const hours   = Math.floor(diff / 3600);
+    diff -= hours * 3600;
+    const minutes = Math.floor(diff / 60);
+    const seconds = diff % 60;
+
+    const pad = (n: number) => String(n).padStart(2, '0');
+
+    document.getElementById('exp-years')!.textContent   = String(years);
+    document.getElementById('exp-days')!.textContent    = String(days);
+    document.getElementById('exp-hours')!.textContent   = String(hours);
+    document.getElementById('exp-minutes')!.textContent = pad(minutes);
+    document.getElementById('exp-seconds')!.textContent = pad(seconds);
+  }
+
+  updateExperience();
+  setInterval(updateExperience, 1000);
 </script>
